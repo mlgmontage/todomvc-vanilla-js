@@ -15,8 +15,22 @@ const update = () => {
       ? "text-decoration-line-through"
       : "";
 
+    const isCompletedAttr = todos[i].isCompleted ? "checked" : "";
+
     view += `
-      <div class="list-group-item ${isCompletedClass} ">${todos[i].name}</div> 
+      <div class="list-group-item ${isCompletedClass} ">
+
+        <div class="form-check">
+
+          <input class="form-check-input" type="checkbox" ${isCompletedAttr} id="${i}">
+
+          <label class="form-check-label ${isCompletedClass}" for="${i}">
+            ${todos[i].name}
+          </label>
+
+        </div>
+
+      </div> 
     `;
   }
 
