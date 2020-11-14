@@ -15,16 +15,25 @@
   <body>
     <div class="container">
       <h1 class="my-2">TodoMVC</h1>
+
+      <!-- Form -->
       <form class="col-md-8 m-auto mb-5">
         <div class="mb-3">
           <label for="InputTodo" class="form-label"
             >Write something to do</label
           >
-          <input type="text" class="form-control" id="InputTodo" />
+          <input
+            type="text"
+            class="form-control"
+            name="todoText"
+            id="InputTodo"
+          />
           <div class="form-text">Make sure these todos are informative</div>
         </div>
-        <button type="submit" class="btn btn-primary">+Add</button>
+        <button type="submit" id="addTodo" class="btn btn-primary">+Add</button>
       </form>
+
+      <!-- List of todos -->
       <div class="list-group col-md-6 m-auto" id="todos"></div>
     </div>
 

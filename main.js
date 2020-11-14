@@ -1,4 +1,6 @@
 const todosElm = document.querySelector("#todos");
+const todoForm = document.querySelector("form");
+const addTodo = document.querySelector("#addTodo");
 
 const todos = [
   { name: "Write some code", isCompleted: false },
@@ -49,3 +51,19 @@ const update = () => {
 };
 
 update();
+
+// Adding todo
+
+addTodo.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const form = new FormData(todoForm);
+  const todoText = form.get("todoText");
+
+  todos.unshift({
+    name: todoText,
+    isCompleted: false,
+  });
+
+  update();
+});
