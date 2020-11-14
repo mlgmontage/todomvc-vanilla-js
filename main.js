@@ -22,9 +22,9 @@ const update = () => {
 
         <div class="form-check">
 
-          <input class="form-check-input" type="checkbox" ${isCompletedAttr} id="${i}">
+          <input class="form-check-input" type="checkbox" ${isCompletedAttr} name="${i}" id="id${i}">
 
-          <label class="form-check-label ${isCompletedClass}" for="${i}">
+          <label class="form-check-label ${isCompletedClass}" for="id${i}">
             ${todos[i].name}
           </label>
 
@@ -34,7 +34,18 @@ const update = () => {
     `;
   }
 
+  // Binding Event to each element
   todosElm.innerHTML = view;
+  for (let i = 0; i < todos.length; i++) {
+    const todoElm = document.querySelector(`#id${i}`);
+
+    todoElm.addEventListener("click", (e) => {
+      const todoId = Number(e.target.name);
+
+      todos[todoId].isCompleted = !todos[todoId].isCompleted;
+      update();
+    });
+  }
 };
 
 update();
