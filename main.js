@@ -65,5 +65,7 @@ addTodo.addEventListener("click", (e) => {
     isCompleted: false,
   });
 
+  todoForm.reset();
+
   update();
 });
